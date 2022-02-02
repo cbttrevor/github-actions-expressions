@@ -1,0 +1,15 @@
+name: GitHub Actions Expressions
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  expressions:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Generate GUID
+      shell: pwsh
+      run: |
+        Write-Host -Object ('::set-output name=Decider::{0}' -f (New-Guid).Guid)
+      
