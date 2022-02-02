@@ -17,3 +17,8 @@ jobs:
       shell: pwsh
       run: |
         Write-Host -Object '${{ steps.guidgen.outputs.Decider }}'
+    - shell: pwsh
+      name: Conditional Print
+      if: ${{ startsWith(steps.guidgen.outputs.Decider, 'c') || startsWith(steps.guidgen.outputs.Decider, 'd') || startsWith(steps.guidgen.outputs.Decider, 'e') || startsWith(steps.guidgen.outputs.Decider, 'f') }}
+      run: |
+        Write-Host -Object '${{ steps.guidgen.outputs.Decider }}'
