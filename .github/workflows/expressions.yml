@@ -16,4 +16,4 @@ jobs:
     - name: Print GUID from previous step
       shell: pwsh
       run: |
-        Write-Host -ForegroundColor Red -Object '${{ steps.outputs.guidgen.Decider }}'
+        Write-Host -Object '${{ steps.outputs.guidgen.Decider }}'
