@@ -8,8 +8,12 @@ jobs:
   expressions:
     runs-on: ubuntu-latest
     steps:
-    - name: Generate GUID
+    - id: guidgen
+      name: Generate GUID
       shell: pwsh
       run: |
         Write-Host -Object ('::set-output name=Decider::{0}' -f (New-Guid).Guid)
-      
+    - name: Print GUID from previous step
+      shell: pwsh
+      run: |
+        Write-Host -ForegroundColor Red -Object '${{ steps.outputs.guidgen.Decider }}'
