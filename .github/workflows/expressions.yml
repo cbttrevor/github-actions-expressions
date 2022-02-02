@@ -12,7 +12,7 @@ jobs:
       name: Generate GUID
       shell: pwsh
       run: |
-        Write-Host -Object ('::set-output name=Decider::{0}' -f (New-Guid).Guid)
+        Write-Host -Object ('::set-output name=Decider::asdf{0}' -f (New-Guid).Guid)
     - name: Print GUID from previous step
       shell: pwsh
       run: |
